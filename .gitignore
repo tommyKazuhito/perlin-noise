@@ -1,0 +1,4 @@
+.DS_Store
+
+# 開発関連ファイル
+node_modules/
