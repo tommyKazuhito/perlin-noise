@@ -1,0 +1,36 @@
+{
+  "name": "perlin-noise1",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "prepare": "husky install",
+    "_lint-script:config": "eslint -c .eslintrc.js './*.{js,ts}' --fix --ignore-pattern '!.*rc.js' --no-error-on-unmatched-pattern && prettier --write --no-error-on-unmatched-pattern ./*.{js,ts}",
+    "_lint-script:src": "eslint -c .eslintrc.js './src/**/*.{js,jsx,ts,tsx}' --fix --no-error-on-unmatched-pattern",
+    "lint-script": "npm-run-all -s _lint-script:*",
+    "format": "prettier --write --no-error-on-unmatched-pattern ./**/*.{js,jsx,ts,tsx}",
+    "lint-staged": "lint-staged",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.0",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
+    "eslint": "^8.25.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.1",
+    "eslint-plugin-import": "^2.26.0",
+    "fs": "^0.0.1-security",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "npm-run-all": "^4.1.5",
+    "path": "^0.12.7",
+    "prettier": "^2.7.1",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0",
+    "vite-tsconfig-paths": "^3.5.1"
+  }
+}
