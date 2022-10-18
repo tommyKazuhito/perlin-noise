@@ -32,5 +32,10 @@
     "typescript": "^4.6.4",
     "vite": "^3.1.0",
     "vite-tsconfig-paths": "^3.5.1"
+  },
+  "dependencies": {
+    "alea": "^1.0.1",
+    "simplenoise": "^1.0.1",
+    "simplex-noise": "^4.0.1"
   }
 }

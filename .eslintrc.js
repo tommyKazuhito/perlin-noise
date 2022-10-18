@@ -33,7 +33,15 @@ module.exports = {
     'import/order': [
       'error',
       {
-        groups: ['builtin', 'external', 'internal', 'type', 'object'],
+        groups: [
+          'builtin',
+          'external',
+          'type',
+          'parent',
+          'sibling',
+          'index',
+          'object',
+        ],
         pathGroups: [
           {
             pattern: '@script/**',
@@ -42,14 +50,17 @@ module.exports = {
           {
             pattern: '@script/types/**',
             group: 'type',
-          },
-          {
-            pattern: '@style/**',
-            group: 'object',
+            position: 'before',
           },
           {
             pattern: '@img/**',
             group: 'object',
+            position: 'before',
+          },
+          {
+            pattern: '@style/**',
+            group: 'object',
+            position: 'before',
           },
         ],
         pathGroupsExcludedImportTypes: ['builtin'],
