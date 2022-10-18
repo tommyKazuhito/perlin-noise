@@ -17,6 +17,8 @@ export default class SimpleLine {
     this.onResize();
 
     this.tick();
+
+    window.addEventListener('resize', this.onResize);
   }
 
   protected draw() {

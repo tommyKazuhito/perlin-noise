@@ -30,7 +30,11 @@ export default class PerlinNoise extends SimpleLine {
       const coefficient = 50 + j;
 
       context.beginPath();
-      context.strokeStyle = '#fff';
+
+      const h = Math.round((j / lineNum) * 360); // 色相
+      const s = Math.round((j / lineNum) * 360); // 彩度
+      const l = Math.round((j / lineNum) * 100); // 明度
+      context.strokeStyle = `hsl(${h}, ${s}%, ${l}%)`;
 
       [...Array(segmentNum).keys()].forEach((i) => {
         // X座標
