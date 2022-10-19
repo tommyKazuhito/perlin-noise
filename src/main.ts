@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 import CurveLine from '@script/CurveLine';
-import PerlinNoise from '@script/PerlinNoise';
-import PerlinNoiseD5 from '@script/PerlinNoiseD5';
+import CurveLineNoise from '@script/CurveLineNoise';
+import CurveLineNoiseD5 from '@script/CurveLineNoiseD5';
 import SimpleLine from '@script/SimpleLine';
 
 import '@style/style.css';
@@ -13,6 +13,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
 const simpleLine = new SimpleLine(document.querySelector('canvas')!);
 const curveLine = new CurveLine(document.querySelector('canvas')!);
-const perlinNoise = new PerlinNoise(document.querySelector('canvas')!);
-const perlinNoiseD5 = new PerlinNoiseD5(document.querySelector('#app')!);
-perlinNoiseD5.init();
+const curveLineNoise = new CurveLineNoise(document.querySelector('canvas')!);
+const curveLineNoiseD5 = new CurveLineNoiseD5(document.querySelector('#app')!);
+curveLineNoiseD5.init();

@@ -1,6 +1,6 @@
 import P5 from 'p5';
 
-export default class PerlinNoise {
+export default class CurveLineNoise {
   p5: P5;
 
   protected stageW = 0;
