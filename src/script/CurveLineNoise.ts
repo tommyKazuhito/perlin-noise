@@ -6,7 +6,7 @@ import SimpleLine from './SimpleLine';
 
 noise.seed(Math.random());
 
-export default class PerlinNoise extends SimpleLine {
+export default class CurveLineNoise extends SimpleLine {
   private readonly lineNum = 150; // ラインの数
 
   private readonly segmentNum = 150; // 分割数
