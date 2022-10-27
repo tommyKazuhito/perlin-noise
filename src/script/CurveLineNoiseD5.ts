@@ -1,7 +1,7 @@
 import P5 from 'p5';
 
-export default class CurveLineNoise {
-  p5: P5;
+export default class CurveLineNoiseD5 {
+  p5: P5 | null = null;
 
   protected stageW = 0;
 
@@ -11,8 +11,8 @@ export default class CurveLineNoise {
 
   private readonly segmentNum = 100; // 分割数
 
-  constructor(node: HTMLElement) {
-    this.p5 = new P5(() => null, node);
+  constructor(private node: HTMLElement) {
+    this.node = node;
 
     this.sketch = this.sketch.bind(this);
     this.onResize = this.onResize.bind(this);
@@ -23,24 +23,22 @@ export default class CurveLineNoise {
 
     document.querySelector('canvas')?.remove();
 
-    this.sketch();
+    this.p5 = new P5(this.sketch, this.node);
   }
 
-  private sketch() {
-    const { p5 } = this;
-
-    p5.setup = () => {
-      p5.resizeCanvas(this.stageW, this.stageH);
+  private sketch(p: P5) {
+    p.setup = () => {
+      p.resizeCanvas(this.stageW, this.stageH);
     };
 
-    p5.draw = () => {
+    p.draw = () => {
       const { lineNum, segmentNum, stageW, stageH } = this;
 
       const amplitude = stageH / 2; // 振幅
 
-      p5.colorMode('hsb');
-      p5.background(0, 0, 0);
-      p5.noFill();
+      p.colorMode('hsb');
+      p.background(0, 0, 0);
+      p.noFill();
 
       const time = Date.now() / 5000; // 媒介変数(時間)
 
@@ -51,8 +49,8 @@ export default class CurveLineNoise {
         const s = Math.round((i / lineNum) * 360); // 彩度
         const l = Math.round((i / lineNum) * 100); // 明度
 
-        p5.beginShape();
-        p5.stroke(h, s, l);
+        p.beginShape();
+        p.stroke(h, s, l);
 
         [...Array(segmentNum).keys()].forEach((j) => {
           // X座標
@@ -64,22 +62,22 @@ export default class CurveLineNoise {
           const py = i / 1000 + time;
 
           // Y座標
-          const seed = p5.noise(px, py);
+          const seed = p.noise(px, py);
           const y = amplitude * seed;
 
           // 線を描く
-          p5.vertex(x, y);
+          p.vertex(x, y);
         });
 
-        p5.endShape();
+        p.endShape();
       });
     };
 
-    p5.windowResized = () => {
+    p.windowResized = () => {
       this.onResize();
       console.log(this.stageW, this.stageH);
 
-      p5.resizeCanvas(this.stageW, this.stageH);
+      p.resizeCanvas(this.stageW, this.stageH);
     };
   }
 
